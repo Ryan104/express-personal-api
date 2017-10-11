@@ -38,14 +38,19 @@ app.get('/', function homepage(req, res) {
 app.get('/api', function api_index(req, res) {
   // TODO: Document all your api endpoints below
   res.json({
-    woops_i_has_forgot_to_document_all_my_endpoints: true, // CHANGE ME ;)
     message: "Welcome to my personal api! Here's what you need to know!",
-    documentation_url: "https://github.com/example-username/express_self_api/README.md", // CHANGE ME
-    base_url: "http://YOUR-APP-NAME.herokuapp.com", // CHANGE ME
+    documentation_url: "https://github.com/Ryan104/express-personal-api/blob/master/README.md", // CHANGE ME
+    base_url: "https://infinite-hollows-62292.herokuapp.com",
     endpoints: [
-      {method: "GET", path: "/api", description: "Describes all available endpoints"},
-      {method: "GET", path: "/api/profile", description: "Data about me"}, // CHANGE ME
-      {method: "POST", path: "/api/campsites", description: "E.g. Create a new campsite"} // CHANGE ME
+      {method: "GET", path: "/api", description: "Describes all available endpoints", active: false},
+      {method: "GET", path: "/api/profile", description: "Data about me", active: false}, 
+      {method: "GET", path: "/api/14ers", description: "See all current mountains", active: false},
+      {method: "POST", path: "/api/14ers", description: "Add a mountain", active: false},
+      {method: "GET", path: "/api/14ers/:id", description: "Get a mountain with the given ID", active: false},
+      {method: "GET", path: "/api/14ers/:id", description: "Get a mountain with the given ID", active: false},
+      {method: "PUT", path: "/api/14ers/:id", description: "Edit a mountain with the given ID", active: false},
+      {method: "DELETE", path: "/api/14ers/:id", description: "Edit a mountain with the given ID", active: false},
+
     ]
   })
 });
