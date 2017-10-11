@@ -36,7 +36,7 @@ app.get('/', function homepage(req, res) {
  * JSON API Endpoints
  */
 
- const { profileRouter } = require('./routes');
+const { profileRoute, mountainRoute } = require('./routes');
 
 app.get('/api', function api_index(req, res) {
   res.json({
@@ -45,7 +45,7 @@ app.get('/api', function api_index(req, res) {
     base_url: "https://infinite-hollows-62292.herokuapp.com",
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints", active: true},
-      {method: "GET", path: "/api/profile", description: "Data about me", active: false}, 
+      {method: "GET", path: "/api/profile", description: "Data about me", active: true}, 
       {method: "GET", path: "/api/14ers", description: "See all current mountains", active: false},
       {method: "POST", path: "/api/14ers", description: "Add a mountain", active: false},
       {method: "GET", path: "/api/14ers/:id", description: "Get a mountain with the given ID", active: false},
@@ -57,7 +57,8 @@ app.get('/api', function api_index(req, res) {
   });
 });
 
-app.use('/api', profileRouter);
+app.use('/api', profileRoute);
+app.use('/api', mountainRoute);
 
 /**********
  * SERVER *
