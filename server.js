@@ -13,13 +13,7 @@ app.use(bodyParser.json());
  ************/
 
 // var db = require('./models');
-const personalData = {
-  name: 'Ryan Elliott',
-  github_link: 'https://github.com/Ryan104',
-  github_profile_image: 'https://avatars1.githubusercontent.com/u/18182439?v=4&s=400&u=cf2f8ded10522a85fcac07d852995acd5af83b41',
-  current_city: 'Denver',
-  hobbies: ['Coding', 'Coding', 'Coding', 'Coding', 'Hiking']
-};
+
 
 /**********
  * ROUTES *
@@ -42,6 +36,8 @@ app.get('/', function homepage(req, res) {
  * JSON API Endpoints
  */
 
+ const { profileRouter } = require('./routes');
+
 app.get('/api', function api_index(req, res) {
   res.json({
     message: "Welcome to my personal api! Here's what you need to know!",
@@ -61,9 +57,7 @@ app.get('/api', function api_index(req, res) {
   });
 });
 
-app.get('/api/profile', (req,res) => {
-  res.json(personalData);
-});
+app.use('/api', profileRouter);
 
 /**********
  * SERVER *
