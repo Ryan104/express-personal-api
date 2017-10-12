@@ -18,6 +18,7 @@ Static 'about me' data is found here
 
 ### /14ers
 A fully CRUDable route for the 14er database
+
 `?maxLength=` - query parameter is also available to search the data by a max route length
 
 `/14ers/:id` - the route for showing individual data points as well as updating and deleting them
