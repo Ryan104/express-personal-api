@@ -7,7 +7,12 @@ const { Mountain } = require('../models');
 //routes
 router.route('/14ers')
 	.get((req, res) => {
-		Mountain.find({}, (err, mountains) => {
+		let query = {};
+		if (req.query.maxLength){
+			query.routeLength = {$lte: req.query.maxLength};
+		} 
+		
+		Mountain.find(query, (err, mountains) => {
 			res.json(mountains);
 		});
 	})
