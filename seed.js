@@ -34,6 +34,7 @@ const mountains = [
 db.Mountain.remove({}, (err) => {
 	if (err) console.log(err);
 	console.log('Seed.js: cleared Mountain collection');
+	// seed db
 	db.Mountain.create(mountains, err => {
 		if (err){
 			return console.log(err);
@@ -43,14 +44,3 @@ db.Mountain.remove({}, (err) => {
 		}
 	});
 });
-
-
-
-// db.Campsite.create(new_campsite, function(err, campsite){
-//   if (err){
-//     return console.log("Error:", err);
-//   }
-
-//   console.log("Created new campsite", campsite._id)
-//   process.exit(); // we're all done! Exit the program.
-// })

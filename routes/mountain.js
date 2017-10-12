@@ -21,9 +21,10 @@ router.route('/14ers')
 			}
 		});
 	});
+
 router.route('/14ers/:id')
 	.get((req,res) => {
-		Mountain.find({_id: req.params.id}, (err, mountain) => {
+		Mountain.findOne({_id: req.params.id}, (err, mountain) => {
 			if (err) {
 				console.log(err);
 				res.json(err);
@@ -31,9 +32,27 @@ router.route('/14ers/:id')
 				res.json(mountain);
 			}
 		});
+	})
+	.put((req, res) => {
+		Mountain.findOneAndUpdate({_id: req.params.id}, {$set: req.body}, {new: true}, (err, mountain) => {
+			if (err){
+				console.log(err);
+				res.json(err);
+			} else {
+				res.json(mountain);
+			}
+		});
+	})
+	.delete((req, res) => {
+		Mountain.remove({_id: req.params.id}, (err) => {
+			if (err){
+				console.log(err);
+				res.json(err);
+			} else {
+				res.json({message: 'Deleted'});
+			}
+		});
 	});
-	//.put()
-	//.delete();
 
 
 module.exports = router;

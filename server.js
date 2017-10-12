@@ -49,7 +49,7 @@ app.get('/api', function api_index(req, res) {
       {method: "GET", path: "/api/14ers", description: "See all current mountains", active: true},
       {method: "POST", path: "/api/14ers", description: "Add a mountain", active: true},
       {method: "GET", path: "/api/14ers/:id", description: "Get a mountain with the given ID", active: true},
-      {method: "PUT", path: "/api/14ers/:id", description: "Edit a mountain with the given ID", active: false},
+      {method: "PUT", path: "/api/14ers/:id", description: "Edit a mountain with the given ID", active: true},
       {method: "DELETE", path: "/api/14ers/:id", description: "Edit a mountain with the given ID", active: false},
 
     ]
