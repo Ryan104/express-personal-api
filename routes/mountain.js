@@ -2,12 +2,13 @@ const express = require('express');
 const router = express.Router();
 
 // models
+const { Mountain } = require('../models');
 
 //fake data
 const mountains = [
 	{
 		name: 'Mt. Bierstadt',
-		height: 14060,
+		elevation: 14060,
 		summitLocation: {
 			lat: '39.582638° N',
 			lon: '-105.668610° W'
@@ -19,7 +20,7 @@ const mountains = [
 	},
 	{
 		name: 'Quandry Peak',
-		height: 14265,
+		elevation: 14265,
 		summitLocation: {
 			lat: '39.397236° N',
 			lon: '-106.106430° W'
@@ -35,6 +36,14 @@ const mountains = [
 router.route('/14ers')
 	.get((req, res) => {
 		res.json(mountains);
+	})
+	.post((req, res) => {
+		console.log(req.body);
+		Mountain.create(req.body, (err, mountain) => {
+			if (err) console.log(err);
+			res.json(mountain);
+		});
 	});
+
 
 module.exports = router;
