@@ -48,7 +48,8 @@ app.get('/api', function api_index(req, res) {
       {method: "GET", path: "/api/profile", description: "Data about me", active: true}, 
       {method: "GET", path: "/api/14ers", description: "See all current mountains", active: true, 
         queries: [
-          {queryParam: "maxLength", description: "Get all 14ers with a route length less than the given maxLength parameter", use: '/api/14ers?maxLength=6', active: true }
+          {queryParam: "maxLength", description: "Get all 14ers with a route length less than the given maxLength parameter", use: '/api/14ers?maxLength=6', active: true },
+          {queryParam: "class", description: "Get all 14ers matching the given route class", use: '/api/14ers?class=2', active: false }
         ]
       },
       {method: "POST", path: "/api/14ers", description: "Add a mountain", active: true},
