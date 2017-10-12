@@ -12,12 +12,28 @@ router.route('/14ers')
 		});
 	})
 	.post((req, res) => {
-		console.log(req.body);
 		Mountain.create(req.body, (err, mountain) => {
-			if (err) console.log(err);
-			res.json(mountain);
+			if (err) {
+				console.log(err);
+				res.json(err);	
+			} else {
+				res.json(mountain);				
+			}
 		});
 	});
+router.route('/14ers/:id')
+	.get((req,res) => {
+		Mountain.find({_id: req.params.id}, (err, mountain) => {
+			if (err) {
+				console.log(err);
+				res.json(err);
+			} else {
+				res.json(mountain);
+			}
+		});
+	});
+	//.put()
+	//.delete();
 
 
 module.exports = router;

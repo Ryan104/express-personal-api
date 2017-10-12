@@ -35,9 +35,12 @@ db.Mountain.remove({}, (err) => {
 	if (err) console.log(err);
 	console.log('Seed.js: cleared Mountain collection');
 	db.Mountain.create(mountains, err => {
-		if (err) console.log(err);
-		console.log('Seed.js: created seed mountain data');
-		process.exit(); // we're all done! Exit the program.
+		if (err){
+			return console.log(err);
+		} else {
+			console.log('Seed.js: created seed mountain data');
+			process.exit(); // we're all done! Exit the program.
+		}
 	});
 });
 

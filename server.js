@@ -46,10 +46,9 @@ app.get('/api', function api_index(req, res) {
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints", active: true},
       {method: "GET", path: "/api/profile", description: "Data about me", active: true}, 
-      {method: "GET", path: "/api/14ers", description: "See all current mountains", active: false},
-      {method: "POST", path: "/api/14ers", description: "Add a mountain", active: false},
-      {method: "GET", path: "/api/14ers/:id", description: "Get a mountain with the given ID", active: false},
-      {method: "GET", path: "/api/14ers/:id", description: "Get a mountain with the given ID", active: false},
+      {method: "GET", path: "/api/14ers", description: "See all current mountains", active: true},
+      {method: "POST", path: "/api/14ers", description: "Add a mountain", active: true},
+      {method: "GET", path: "/api/14ers/:id", description: "Get a mountain with the given ID", active: true},
       {method: "PUT", path: "/api/14ers/:id", description: "Edit a mountain with the given ID", active: false},
       {method: "DELETE", path: "/api/14ers/:id", description: "Edit a mountain with the given ID", active: false},
 
